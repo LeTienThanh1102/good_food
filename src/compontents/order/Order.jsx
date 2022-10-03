@@ -3,11 +3,14 @@ import { useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faClose } from "@fortawesome/free-solid-svg-icons";
+import { useContext } from "react";
+import { CartContext } from "../Context/CartContext";
 function Order({ visiable, setOrder, infor }) {
   const location = useLocation();
   // const orderProduct = location.state;
   const [number, setNumber] = useState(1);
   const [price, setPrice] = useState();
+  const { setCartAdd, setTotal, addCart } = useContext(CartContext);
   useEffect(() => {
     setPrice(infor?.price);
     setNumber(1);
@@ -23,6 +26,18 @@ function Order({ visiable, setOrder, infor }) {
   const handeTang = () => {
     setNumber(number + 1);
     setPrice(infor?.price * (number + 1));
+  };
+  const handleCart = () => {
+    const newItem = {
+      img: infor.img,
+      store: infor.store,
+      name: infor.name,
+      price: price,
+      sol: number,
+    };
+    setCartAdd([...addCart, newItem]);
+    setTotal((total) => (total += price));
+    setOrder(false);
   };
   return (
     <div className={`order ${visiable && "active"}`}>
@@ -47,17 +62,21 @@ function Order({ visiable, setOrder, infor }) {
         <div className="order__information">
           <h2 className="order__store">{infor?.store}</h2>
           <div className="order__mon">
-            <span className="order__gt" style={{fontSize:'3rem' }}>Tên Món:</span>
+            <span className="order__gt" style={{ fontSize: "3rem" }}>
+              Tên Món:
+            </span>
             <span className="order__name">{infor?.name}</span>
           </div>
           <div className="order__size">
-            <span className="order__luachon" style={{fontSize:'2.6rem' }}>Size: </span>
+            <span className="order__luachon" style={{ fontSize: "2.6rem" }}>
+              Size:{" "}
+            </span>
             <button className="order__button">M</button>
             <button className="order__button">L</button>
             <button className="order__button">XL</button>
           </div>
           <div className="order__soluong">
-            <span style={{fontSize:'2.6rem' }}>Số Lương: </span>
+            <span style={{ fontSize: "2.6rem" }}>Số Lương: </span>
             <button onClick={() => handeIncret()} className="order__mana">
               -
             </button>
@@ -67,19 +86,25 @@ function Order({ visiable, setOrder, infor }) {
             </button>
           </div>
           <div className="order__price">
-            <span className="order__price-text" style={{fontSize:'2.6rem' }}>Giá Bán: </span>
+            <span className="order__price-text" style={{ fontSize: "2.6rem" }}>
+              Giá Bán:{" "}
+            </span>
             {price && (
-              <h className="order__money">${Math.floor(price * 100) / 100}</h>
+              <span className="order__money">
+                ${Math.floor(price * 100) / 100}
+              </span>
             )}
           </div>
           <div className="order__mota">
-            <span style={{fontSize:'2.6rem' }}>Mô tả sản phẩm:</span>
-            <span style={{fontSize:'2.4rem', padding:'0 12px' }}>
+            <span style={{ fontSize: "2.6rem" }}>Mô tả sản phẩm:</span>
+            <span style={{ fontSize: "2.4rem", padding: "0 12px" }}>
               Phở là đặc sản của Việt Nam, Phở bò được làm rất tỉ mỉ và cầu kì.
             </span>
           </div>
           <div className="order__add">
-            <button className="order__cart1">Add To Cart</button>
+            <button className="order__cart1" onClick={() => handleCart()}>
+              Add To Cart
+            </button>
           </div>
         </div>
       </div>
