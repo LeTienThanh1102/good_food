@@ -62,13 +62,13 @@ function Order({ visiable, setOrder, infor }) {
         <div className="order__information">
           <h2 className="order__store">{infor?.store}</h2>
           <div className="order__mon">
-            <span className="order__gt" style={{ fontSize: "3rem" }}>
+            <span className="order__gt" style={{ fontSize: "2rem" }}>
               Tên Món:
             </span>
             <span className="order__name">{infor?.name}</span>
           </div>
           <div className="order__size">
-            <span className="order__luachon" style={{ fontSize: "2.6rem" }}>
+            <span className="order__luachon" style={{ fontSize: "2rem" }}>
               Size:{" "}
             </span>
             <button className="order__button">M</button>
@@ -76,7 +76,7 @@ function Order({ visiable, setOrder, infor }) {
             <button className="order__button">XL</button>
           </div>
           <div className="order__soluong">
-            <span style={{ fontSize: "2.6rem" }}>Số Lương: </span>
+            <span style={{ fontSize: "2rem" }}>Số Lương: </span>
             <button onClick={() => handeIncret()} className="order__mana">
               -
             </button>
@@ -86,7 +86,7 @@ function Order({ visiable, setOrder, infor }) {
             </button>
           </div>
           <div className="order__price">
-            <span className="order__price-text" style={{ fontSize: "2.6rem" }}>
+            <span className="order__price-text" style={{ fontSize: "2rem" }}>
               Giá Bán:{" "}
             </span>
             {price && (
@@ -96,8 +96,8 @@ function Order({ visiable, setOrder, infor }) {
             )}
           </div>
           <div className="order__mota">
-            <span style={{ fontSize: "2.6rem" }}>Mô tả sản phẩm:</span>
-            <span style={{ fontSize: "2.4rem", padding: "0 12px" }}>
+            <span style={{ fontSize: "2rem" }}>Mô tả sản phẩm:</span>
+            <span style={{ fontSize: "1.8rem", padding: "0 12px" }}>
               Phở là đặc sản của Việt Nam, Phở bò được làm rất tỉ mỉ và cầu kì.
             </span>
           </div>

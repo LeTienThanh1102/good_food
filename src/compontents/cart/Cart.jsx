@@ -27,7 +27,7 @@ function Cart() {
           />
         </div>
         <div className="cart__body">
-          <div className="cart__header">CheckOut</div>
+          <div className="cart__header">Check-Out</div>
           <div className="cart__pro">
             {addCart.map((item, index) => (
               <div key={index}>
