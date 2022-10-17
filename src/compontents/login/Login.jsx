@@ -2,6 +2,7 @@ import './login.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebook } from '@fortawesome/free-brands-svg-icons';
 import { faMobileScreen } from '@fortawesome/free-solid-svg-icons';
+import { Link } from 'react-router-dom';
 function Login() {
     const login=[
         {
@@ -26,7 +27,8 @@ function Login() {
             <div className="login-table">
                 <div className="login_contaniner">
                     <div className="login-header">
-                        <p className="login_name">Đăng nhập</p>
+                        <p className="login_name active" >Đăng nhập</p>
+                        <Link to="/register" className="login_name">Đăng kí</Link>
                     </div>
                     <div className="login-button">
                         {login.map((item,index)=>(

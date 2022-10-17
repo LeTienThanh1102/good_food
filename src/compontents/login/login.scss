@@ -27,6 +27,14 @@
 .login_name{
     font-size: 28px;
     font-weight: 600;
+    padding: 0 100px;
+    text-decoration: none;
+}
+.login_name.active{
+    font-size: 28px;
+    font-weight: 600;
+    padding: 0 100px;
+    color: #f4800d;
 }
 .login-button{
     padding-bottom: 30px;
@@ -37,7 +45,7 @@
     margin-bottom: 12px;
     padding: 10px 12px;
     border-radius: 5px;
-    background-color: #aa3a18;
+    background-color: #f96335;
     &:hover{
         background-color: #cf4c24;
     }

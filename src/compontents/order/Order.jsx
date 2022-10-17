@@ -6,7 +6,7 @@ import { faClose } from "@fortawesome/free-solid-svg-icons";
 import { useContext } from "react";
 import { CartContext } from "../Context/CartContext";
 function Order({ visiable, setOrder, infor }) {
-  const location = useLocation();
+  // const location = useLocation();
   // const orderProduct = location.state;
   const [number, setNumber] = useState(1);
   const [price, setPrice] = useState();

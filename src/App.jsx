@@ -7,6 +7,7 @@ import Login from "./compontents/login/Login";
 import Sale from "./compontents/sales/Sale";
 import { CartContext } from "./compontents/Context/CartContext";
 import { useState } from "react";
+import Register from "./compontents/register/Register";
 
 function App() {
   const [addCart, setCartAdd] = useState([]);
@@ -20,6 +21,7 @@ function App() {
           <Route path="/sale" element={<Sale />} />
           <Route path="/infor" element={<InFor />} />
           <Route path="/cart" element={<Cart />} />
+          <Route path="register" element={<Register />} />
         </Routes>
       </BrowserRouter>
     </CartContext.Provider>
