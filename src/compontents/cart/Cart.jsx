@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
 import Header from "../header/Header";
 import Footer from "../footer/Footer";
+import { useEffect } from "react";
 function Cart() {
   const { addCart, total, setCartAdd, setTotal } = useContext(CartContext);
   const handleDelete = (item) => {
@@ -15,13 +16,16 @@ function Cart() {
       setTotal((total) => (total -= item.price));
     }
   };
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <div className="cart__vip">
       <Header />
       <div className="cart">
         <div className="cart_logo">
           <img
-            src="https://media.viezone.vn/prod/2021/11/9/large_image_1d025ebcce.png"
+            src="https://seeklogo.com/images/F/food-logo-59E5A73AFD-seeklogo.com.png"
             alt=""
             className="cart__logo__img"
           />

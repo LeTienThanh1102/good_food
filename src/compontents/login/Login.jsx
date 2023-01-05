@@ -47,7 +47,7 @@ function Login() {
                     <button className="login_btn">Đăng nhập</button>
                     </div>
                     <p className="login-help">Chúng tôi không sử dụng thông tin của bạn với bất kỳ mục đích nào. Bằng cách đăng nhập hoặc đăng ký, bạn đồng ý với 
-                            <a href="">Chính sách quy định của Foody</a>
+                            <a href="" style={{padding:"0 12px"}}>Chính sách quy định của Foody</a>
                     </p>
                 </div>
             </div>

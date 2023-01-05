@@ -10,11 +10,15 @@ function Order({ visiable, setOrder, infor }) {
   // const orderProduct = location.state;
   const [number, setNumber] = useState(1);
   const [price, setPrice] = useState();
+  const [color, setColor] = useState(0);
   const { setCartAdd, setTotal, addCart } = useContext(CartContext);
   useEffect(() => {
     setPrice(infor?.price);
     setNumber(1);
   }, [infor]);
+  const handleColor = (e) => {
+    setColor(e);
+  };
   const handeIncret = () => {
     if (number > 1) {
       setNumber(number - 1);
@@ -39,6 +43,7 @@ function Order({ visiable, setOrder, infor }) {
     setTotal((total) => (total += price));
     setOrder(false);
   };
+  const size = ["M", "L", "XL"];
   return (
     <div className={`order ${visiable && "active"}`}>
       <div
@@ -71,9 +76,18 @@ function Order({ visiable, setOrder, infor }) {
             <span className="order__luachon" style={{ fontSize: "2rem" }}>
               Size:{" "}
             </span>
-            <button className="order__button">M</button>
-            <button className="order__button">L</button>
-            <button className="order__button">XL</button>
+            {size.map((item, index) => (
+              <button
+                id={index}
+                key={index}
+                onClick={() => handleColor(index)}
+                className={`order__button ${color === index ? "active" : ""}`}
+              >
+                {item}
+              </button>
+            ))}
+            {/* <button className="order__button">L</button>
+            <button className="order__button">XL</button> */}
           </div>
           <div className="order__soluong">
             <span style={{ fontSize: "2rem" }}>Số Lương: </span>

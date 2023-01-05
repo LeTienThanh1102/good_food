@@ -116,7 +116,9 @@
 .order__cart1 {
   padding: 8px 50px;
 }
-
+.order__button.active{
+  color: red;
+}
 @keyframes slowDown {
   from {
     transform: translateY(-200%);
